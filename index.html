@@ -410,6 +410,328 @@
   .trade-confirm-btn:disabled { opacity: 0.35; cursor: not-allowed; }
 
   /* Jackpot quick entry buttons */
+  .market-type-btn {
+    flex: 1;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .market-type-btn.active {
+    background: rgba(255,183,77,0.1);
+    border-color: rgba(255,183,77,0.4);
+    color: #ffb74d;
+  }
+  /* Listing card in browse */
+  .market-listing {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 10px;
+    transition: border-color 0.2s;
+  }
+  .market-listing:hover { border-color: rgba(255,183,77,0.3); }
+  .market-listing-thumb {
+    width: 54px;
+    height: 80px;
+    flex-shrink: 0;
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .market-listing-info { flex: 1; min-width: 0; }
+  .market-listing-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 17px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .market-listing-sub {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 8px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+  .market-listing-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    color: #ffb74d;
+    white-space: nowrap;
+  }
+  .market-listing-badge {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 8px;
+    padding: 2px 7px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 4px;
+  }
+  .badge-fixed { background: rgba(79,195,247,0.12); color: #4fc3f7; border: 1px solid rgba(79,195,247,0.25); }
+  .badge-auction { background: rgba(206,147,216,0.12); color: #ce93d8; border: 1px solid rgba(206,147,216,0.25); }
+  .badge-sold { background: rgba(239,83,80,0.12); color: #ef5350; border: 1px solid rgba(239,83,80,0.25); }
+  .market-buy-btn {
+    background: rgba(255,183,77,0.1);
+    border: 1px solid rgba(255,183,77,0.35);
+    color: #ffb74d;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .market-buy-btn:hover {
+    background: rgba(255,183,77,0.2);
+    box-shadow: 0 0 12px rgba(255,183,77,0.2);
+  }
+  .market-buy-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+  .market-remove-btn {
+    background: rgba(239,83,80,0.08);
+    border: 1px solid rgba(239,83,80,0.25);
+    color: #ef5350;
+    padding: 7px 14px;
+    border-radius: 8px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 9px;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .market-remove-btn:hover { background: rgba(239,83,80,0.15); }
+  .market-bid-input {
+    width: 90px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(206,147,216,0.3);
+    color: var(--text);
+    padding: 7px 10px;
+    border-radius: 6px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    outline: none;
+  }
+  .market-empty {
+    font-family: 'Crimson Pro', serif;
+    color: var(--muted);
+    font-size: 14px;
+    font-style: italic;
+    padding: 24px 0;
+    text-align: center;
+  }
+
+  /* Trade modal */
+  .trade-modal {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    width: 92%;
+    max-width: 680px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: slideUp 0.3s ease;
+  }
+  .trade-header {
+    padding: 20px 24px 0;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+  .trade-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  .trade-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 0.08em;
+    color: #4fc3f7;
+  }
+  .trade-tabs {
+    display: flex;
+    gap: 0;
+  }
+  .trade-tab {
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--muted);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 10px 18px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .trade-tab.active, .trade-tab:hover {
+    color: var(--text);
+    border-bottom-color: #4fc3f7;
+  }
+  .trade-body {
+    overflow-y: auto;
+    flex: 1;
+    padding: 20px 24px;
+    min-height: 0;
+  }
+  .trade-panel { display: flex; flex-direction: column; }
+  .trade-panel.hidden { display: none; }
+
+  /* My ID box */
+  .trade-id-box {
+    background: rgba(79,195,247,0.05);
+    border: 1px solid rgba(79,195,247,0.2);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 20px;
+  }
+  .trade-id-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.25em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .trade-id-value {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px;
+    color: #4fc3f7;
+    letter-spacing: 0.08em;
+    word-break: break-all;
+  }
+  .trade-id-copy {
+    margin-top: 8px;
+    background: rgba(79,195,247,0.08);
+    border: 1px solid rgba(79,195,247,0.25);
+    color: #4fc3f7;
+    padding: 5px 14px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s;
+  }
+  .trade-id-copy:hover { background: rgba(79,195,247,0.16); }
+
+  /* Offer trade section */
+  .trade-section-title {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .trade-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .trade-card-thumb {
+    aspect-ratio: 2/3;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: #07070f;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.2s;
+  }
+  .trade-card-inner {
+    position: absolute;
+    top: 0; left: 0;
+    width: 320px; height: 480px;
+    transform-origin: top left;
+    pointer-events: none;
+  }
+  .trade-card-inner .card-front {
+    position: absolute; inset: 0;
+    border-radius: 10px;
+    display: flex; flex-direction: column;
+    overflow: hidden;
+    transform: rotateY(0deg) !important;
+  }
+  .trade-card-thumb:hover { border-color: rgba(79,195,247,0.5); transform: translateY(-2px); }
+  .trade-card-thumb.selected { border-color: #4fc3f7; box-shadow: 0 0 16px rgba(79,195,247,0.25); }
+
+  /* Trade form inputs */
+  .trade-input-row {
+    display: flex;
+    gap: 10px;
+    align-items: stretch;
+    margin-bottom: 12px;
+  }
+  .trade-input {
+    flex: 1;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .trade-input:focus { border-color: #4fc3f7; }
+  .trade-input::placeholder { color: var(--muted); }
+
+  .trade-want-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    margin-top: 4px;
+  }
+  .trade-confirm-btn {
+    background: rgba(79,195,247,0.1);
+    border: 1px solid rgba(79,195,247,0.4);
+    color: #4fc3f7;
+    padding: 10px 28px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.2s;
+    display: block;
+    width: 100%;
+    margin-top: 14px;
+  }
+  .trade-confirm-btn:hover {
+    background: rgba(79,195,247,0.2);
+    box-shadow: 0 0 20px rgba(79,195,247,0.2);
+  }
+  .trade-confirm-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+
+  /* Jackpot quick entry buttons */
+
   .jackpot-quick-btn {
     background: rgba(244,208,63,0.06);
     border: 1px solid rgba(244,208,63,0.25);
@@ -2908,6 +3230,7 @@
 <body>
 
 <div class="particles" id="particles"></div>
+<div class="market-toast" id="market-toast"></div>
 <div class="game-toast" id="game-toast"></div>
 
 <div class="container">
@@ -2916,6 +3239,10 @@
       <button class="trade-btn" id="trade-btn">
         <span class="trade-btn-icon">🔄</span>
         <span>Trade</span>
+      </button>
+      <button class="trade-btn" id="market-btn" style="border-color:rgba(255,183,77,0.3);margin-top:6px">
+        <span>🏪</span>
+        <span>Market</span>
       </button>
       <button class="trade-btn" id="jackpot-btn" style="border-color:rgba(244,208,63,0.35);margin-top:6px">
         <span>🎰</span>
@@ -3258,6 +3585,148 @@
 
 
 
+  <div class="modal-overlay" id="market-overlay">
+    <div class="market-modal">
+      <div class="market-header">
+        <div class="market-title-row">
+          <span class="market-title">🏪 Marketplace</span>
+          <div style="display:flex;align-items:center;gap:12px">
+            <div class="coin-display-modal">
+              <span>🪙</span>
+              <span id="market-coin-amount">0</span>
+              <span style="font-size:9px;color:var(--muted)">coins</span>
+            </div>
+            <button class="modal-close" id="market-close">✕</button>
+          </div>
+        </div>
+        <div class="trade-tabs" id="market-tabs">
+          <button class="trade-tab active" data-mtab="browse">Browse</button>
+          <button class="trade-tab" data-mtab="sell">Sell a Card</button>
+          <button class="trade-tab" data-mtab="mylistings">My Listings</button>
+          <button class="trade-tab" data-mtab="daily">Daily Bonus</button>
+          <button class="trade-tab" data-mtab="jackpot" style="color:#f4d03f;border-color:rgba(244,208,63,0.3)">🎰 Jackpot</button>
+        </div>
+      </div>
+      <div class="trade-body">
+
+        <!-- BROWSE TAB -->
+        <div class="market-panel" id="market-browse-panel">
+          <div style="display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;align-items:center">
+            <input class="trade-input" id="market-search" placeholder="Search cards…" style="flex:1;min-width:120px;padding:7px 12px" />
+            <select class="trade-input" id="market-filter-ef" style="padding:7px 10px;background:var(--surface);color:var(--text);cursor:pointer">
+              <option value="all">All Rarity</option>
+              <option value="ef1">EF1</option>
+              <option value="ef2">EF2</option>
+              <option value="ef3">EF3</option>
+              <option value="ef4">EF4</option>
+              <option value="ef5">EF5</option>
+            </select>
+            <select class="trade-input" id="market-filter-type" style="padding:7px 10px;background:var(--surface);color:var(--text);cursor:pointer">
+              <option value="all">All Types</option>
+              <option value="fixed">Fixed Price</option>
+              <option value="auction">Auction</option>
+            </select>
+          </div>
+          <div id="market-listings-grid"></div>
+        </div>
+
+        <!-- SELL TAB -->
+        <div class="market-panel hidden" id="market-sell-panel">
+          <div class="trade-section-title" style="margin-bottom:10px">1 · Pick a card from your collection</div>
+          <div class="trade-card-grid" id="market-sell-grid"></div>
+          <div id="market-sell-form" style="display:none;margin-top:14px">
+            <div id="market-sell-selected" style="font-family:'Share Tech Mono',monospace;font-size:9px;color:#4fc3f7;margin-bottom:14px"></div>
+            <div class="trade-section-title" style="margin-bottom:10px">2 · Choose listing type</div>
+            <div style="display:flex;gap:10px;margin-bottom:14px">
+              <button class="market-type-btn active" id="sell-type-fixed" data-type="fixed">Fixed Price</button>
+              <button class="market-type-btn" id="sell-type-auction" data-type="auction">Auction (24h)</button>
+            </div>
+            <div class="trade-section-title" style="margin-bottom:8px">3 · Set your price</div>
+            <div style="display:flex;gap:8px;align-items:center;margin-bottom:6px">
+              <span style="font-size:16px">🪙</span>
+              <input class="trade-input" id="market-price-input" type="number" min="1" max="99999" placeholder="e.g. 250" style="width:120px;padding:8px 12px" />
+              <span style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--muted)" id="sell-type-label">fixed price</span>
+            </div>
+            <div style="font-family:'Share Tech Mono',monospace;font-size:8px;color:var(--muted);margin-bottom:16px" id="sell-price-hint">Card stays in your collection until sold. You can remove the listing anytime.</div>
+            <button class="trade-confirm-btn" id="market-list-btn">List Card</button>
+          </div>
+        </div>
+
+        <!-- MY LISTINGS TAB -->
+        <div class="market-panel hidden" id="market-mylistings-panel">
+          <div class="trade-section-title" style="margin-bottom:10px">Your Active Listings</div>
+          <div id="market-my-listings-list"></div>
+        </div>
+
+        <!-- DAILY BONUS TAB -->
+        <div class="market-panel hidden" id="market-daily-panel">
+          <div style="text-align:center;padding:24px 0 20px">
+            <div style="font-size:48px;margin-bottom:12px">🪙</div>
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:32px;color:#ffb74d;letter-spacing:2px">Daily Bonus</div>
+            <div style="font-family:'Crimson Pro',serif;color:var(--muted);font-size:14px;margin:8px 0 24px">Come back every day to claim 50 free coins.</div>
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:48px;color:#ffb74d" id="daily-coin-amount">+50</div>
+            <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--muted);margin-bottom:24px">coins</div>
+            <button class="trade-confirm-btn" id="daily-claim-btn" style="font-size:13px;padding:12px 32px;background:rgba(255,183,77,0.1);border-color:rgba(255,183,77,0.4);color:#ffb74d;margin:0 auto">Claim Daily Bonus</button>
+            <div id="daily-claim-status" style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--muted);margin-top:14px;min-height:16px"></div>
+            <div style="margin-top:32px;padding-top:20px;border-top:1px solid var(--border)">
+              <div style="font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:2px;color:var(--muted);margin-bottom:6px">YOUR BALANCE</div>
+              <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:#ffb74d">🪙 <span id="daily-balance">0</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- JACKPOT TAB -->
+        <div class="market-panel hidden" id="market-jackpot-panel">
+          <!-- Header: pot + countdown -->
+          <div style="text-align:center;padding:18px 0 14px;border-bottom:1px solid var(--border);margin-bottom:16px">
+            <div style="font-size:36px;margin-bottom:4px" id="jackpot-spin-icon">🎰</div>
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:3px;color:#f4d03f">JACKPOT</div>
+            <div style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:2px;margin-bottom:12px">WINNER TAKES ALL · DRAW EVERY 3 MINUTES</div>
+            <div style="display:flex;justify-content:center;gap:32px;margin-bottom:8px">
+              <div>
+                <div style="font-family:'Bebas Neue',sans-serif;font-size:32px;color:#f4d03f">🪙 <span id="jackpot-pot-display">0</span></div>
+                <div style="font-family:'Share Tech Mono',monospace;font-size:8px;color:var(--muted);letter-spacing:1px">CURRENT POT</div>
+              </div>
+              <div>
+                <div style="font-family:'Bebas Neue',sans-serif;font-size:32px;color:#ce93d8"><span id="jackpot-countdown">--:--</span></div>
+                <div style="font-family:'Share Tech Mono',monospace;font-size:8px;color:var(--muted);letter-spacing:1px">NEXT DRAW</div>
+              </div>
+            </div>
+            <!-- Last winner banner -->
+            <div id="jackpot-last-winner" style="font-family:'Share Tech Mono',monospace;font-size:9px;color:rgba(244,208,63,0.5);min-height:14px"></div>
+          </div>
+
+          <!-- Enter the pot -->
+          <div style="background:rgba(244,208,63,0.04);border:1px solid rgba(244,208,63,0.15);border-radius:10px;padding:14px;margin-bottom:16px">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2px;color:#f4d03f;margin-bottom:10px">ENTER THE JACKPOT</div>
+            <div style="font-family:'Crimson Pro',serif;color:var(--muted);font-size:12px;margin-bottom:12px">Put in coins to earn a share of the pot. The more you put in, the higher your win chance. You can add more anytime before the draw.</div>
+            <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+              <input class="trade-input" id="jackpot-entry-input" type="number" min="1" placeholder="Coins to enter…" style="flex:1;min-width:100px;padding:8px 12px" />
+              <button class="trade-confirm-btn" id="jackpot-enter-btn" style="background:rgba(244,208,63,0.08);border-color:rgba(244,208,63,0.35);color:#f4d03f;padding:8px 16px;margin:0;white-space:nowrap">Enter 🎰</button>
+            </div>
+            <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
+              <button class="jackpot-quick-btn" data-amount="10">+10</button>
+              <button class="jackpot-quick-btn" data-amount="50">+50</button>
+              <button class="jackpot-quick-btn" data-amount="100">+100</button>
+              <button class="jackpot-quick-btn" data-amount="500">+500</button>
+              <button class="jackpot-quick-btn" data-amount="all">All In 🔥</button>
+            </div>
+            <div id="jackpot-my-entry-info" style="font-family:'Share Tech Mono',monospace;font-size:9px;color:#f4d03f;margin-top:10px;min-height:14px"></div>
+          </div>
+
+          <!-- Entries wheel/list -->
+          <div>
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:2px;color:var(--muted);margin-bottom:10px">ENTRIES THIS ROUND</div>
+            <div id="jackpot-entries-list" style="display:flex;flex-direction:column;gap:6px;max-height:220px;overflow-y:auto"></div>
+            <div id="jackpot-empty-msg" style="font-family:'Crimson Pro',serif;color:var(--muted);font-size:13px;text-align:center;padding:20px 0;display:none">No entries yet — be the first!</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  
 <!-- Auth Modal -->
 <div id="auth-overlay" style="position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:9999;display:none;align-items:center;justify-content:center;backdrop-filter:blur(8px)">
   <div style="background:#0f0f1a;border:1px solid #1e1e2e;border-radius:20px;width:92%;max-width:380px;padding:36px 32px;position:relative;box-shadow:0 0 60px rgba(79,195,247,0.08)">
@@ -5636,6 +6105,527 @@ function initJackpotModal() {
 
 
 // =====================
+// MARKETPLACE
+// =====================
+
+
+function getCoins() {
+  return parseInt(localStorage.getItem(COINS_KEY) || '0', 10);
+}
+function setCoins(n) {
+  localStorage.setItem(COINS_KEY, String(Math.max(0, Math.floor(n))));
+  updateCoinDisplay();
+}
+function addCoins(n) { setCoins(getCoins() + n); }
+function spendCoins(n) {
+  const c = getCoins();
+  if (c < n) return false;
+  setCoins(c - n);
+  return true;
+}
+function updateCoinDisplay() {
+  const amt = getCoins().toLocaleString();
+  const el1 = document.getElementById('coin-amount');
+  const el2 = document.getElementById('market-coin-amount');
+  const el3 = document.getElementById('daily-balance');
+  if (el1) el1.textContent = amt;
+  if (el2) el2.textContent = amt;
+  if (el3) el3.textContent = amt;
+}
+
+// ---- Firebase listing helpers ----
+async function marketFbGet(path) {
+  try {
+    const res = await fetch(`${FIREBASE_BASE}/${path}.json`);
+    if (!res.ok) return null;
+    return await res.json();
+  } catch(e) { return null; }
+}
+async function marketFbSet(path, data) {
+  try {
+    await fetch(`${FIREBASE_BASE}/${path}.json`, {
+      method: 'PUT', headers: {'Content-Type':'application/json'}, body: JSON.stringify(data)
+    });
+    return true;
+  } catch(e) { return false; }
+}
+async function marketFbPush(path, data) {
+  try {
+    const res = await fetch(`${FIREBASE_BASE}/${path}.json`, {
+      method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(data)
+    });
+    return (await res.json()).name;
+  } catch(e) { return null; }
+}
+async function marketFbDelete(path) {
+  try { await fetch(`${FIREBASE_BASE}/${path}.json`, {method:'DELETE'}); return true; }
+  catch(e) { return false; }
+}
+async function marketFbPatch(path, data) {
+  try {
+    await fetch(`${FIREBASE_BASE}/${path}.json`, {
+      method: 'PATCH', headers: {'Content-Type':'application/json'}, body: JSON.stringify(data)
+    });
+    return true;
+  } catch(e) { return false; }
+}
+
+// ---- Daily bonus ----
+function getDailyKey() {
+  const d = new Date();
+  return `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
+}
+function hasClaimedDaily() {
+  return localStorage.getItem(LAST_DAILY_KEY) === getDailyKey();
+}
+function claimDaily() {
+  if (hasClaimedDaily()) return false;
+  localStorage.setItem(LAST_DAILY_KEY, getDailyKey());
+  addCoins(DAILY_AMOUNT);
+  return true;
+}
+
+// ---- Sell card ----
+let marketSellSerial = null;
+let marketSellType = 'fixed';
+
+function renderMarketSellGrid() {
+  const grid = document.getElementById('market-sell-grid');
+  const myId = getTraderId();
+  if (collection.length === 0) {
+    grid.innerHTML = `<div class="market-empty">Open some cards first!</div>`;
+    document.getElementById('market-sell-form').style.display = 'none';
+    return;
+  }
+  grid.innerHTML = collection.map(card => {
+    const cfg = RARITY_CONFIG[card.ef];
+    const specialClass = card.tornado.vintage ? ' vintage' : card.tornado.middleeast ? ' middleeast' : card.tornado.overseas ? ' overseas' : '';
+    const sel = marketSellSerial === card.serial;
+    return `
+      <div class="trade-card-thumb ${sel?'selected':''}" data-sell-serial="${card.serial}" style="border-color:${cfg.color}55">
+        <div class="trade-card-inner">
+          <div class="card card-front ${card.ef}${specialClass}" style="position:absolute;inset:0;border-radius:10px;overflow:hidden;display:flex;flex-direction:column;">
+            ${buildCardHTML(card.ef, card.tornado, card.serial, card.copyNum)}
+          </div>
+        </div>
+      </div>`;
+  }).join('');
+
+  grid.onclick = e => {
+    const thumb = e.target.closest('[data-sell-serial]');
+    if (!thumb) return;
+    marketSellSerial = thumb.dataset.sellSerial;
+    const card = collection.find(c => c.serial === marketSellSerial);
+    if (!card) return;
+    const cfg = RARITY_CONFIG[card.ef];
+    document.getElementById('market-sell-selected').textContent =
+      `Selected: ${card.tornado.name} — ${cfg.label} · Copy ${card.copyNum}/${cfg.copies}`;
+    document.getElementById('market-sell-form').style.display = 'block';
+    grid.querySelectorAll('.trade-card-thumb').forEach(t => t.classList.remove('selected'));
+    thumb.classList.add('selected');
+  };
+  requestAnimationFrame(() => grid.querySelectorAll('.trade-card-thumb').forEach(scaleThumb));
+}
+
+async function listCard() {
+  const traderId = getTraderId();
+  if (!traderId) return showToast('Set your Trader ID in the Trade menu first', '#ef5350');
+  if (!marketSellSerial) return showToast('Select a card to list', '#ef5350');
+  const priceVal = parseInt(document.getElementById('market-price-input').value, 10);
+  if (!priceVal || priceVal < 1) return showToast('Enter a valid price', '#ef5350');
+  const card = collection.find(c => c.serial === marketSellSerial);
+  if (!card) return showToast('Card not found', '#ef5350');
+
+  const listing = {
+    sellerId: traderId,
+    sellerUid: getInternalUid(),
+    type: marketSellType,
+    price: priceVal,
+    startingPrice: priceVal,
+    card: {
+      ef: card.ef, serial: card.serial, copyNum: card.copyNum,
+      name: card.tornado.name, location: card.tornado.location,
+      date: card.tornado.date, wind: card.tornado.wind, path: card.tornado.path,
+      deaths: card.tornado.deaths, vintage: !!card.tornado.vintage,
+      middleeast: !!card.tornado.middleeast, overseas: !!card.tornado.overseas, fscale: card.tornado.fscale || null,
+      flags: card.tornado.flags || null, icon: card.tornado.icon
+    },
+    status: 'active',
+    topBidder: null,
+    topBidderId: null,
+    listedAt: Date.now(),
+    expiresAt: marketSellType === 'auction' ? Date.now() + 24*60*60*1000 : null
+  };
+
+  const key = await marketFbPush('marketplace', listing);
+  if (!key) return showToast('Failed to list — check connection', '#ef5350');
+
+  // Mark card as listed in local collection
+  const idx = collection.findIndex(c => c.serial === marketSellSerial);
+  if (idx >= 0) {
+    collection[idx].listedKey = key;
+    saveState();
+    renderCollection();
+  }
+
+  marketSellSerial = null;
+  document.getElementById('market-sell-form').style.display = 'none';
+  document.getElementById('market-price-input').value = '';
+  renderMarketSellGrid();
+  showToast(`✅ Card listed for 🪙 ${priceVal.toLocaleString()}!`, '#ffb74d');
+  switchMarketTab('mylistings');
+}
+
+// ---- Browse listings ----
+async function renderMarketBrowse() {
+  const grid = document.getElementById('market-listings-grid');
+  grid.innerHTML = `<div class="market-empty">Loading listings…</div>`;
+
+  const data = await marketFbGet('marketplace');
+  if (!data) {
+    grid.innerHTML = `<div class="market-empty">No listings yet. Be the first to sell!</div>`;
+    return;
+  }
+
+  const myUid = getInternalUid();
+  const myId = getTraderId();
+  const search = (document.getElementById('market-search').value || '').toLowerCase();
+  const efFilter = document.getElementById('market-filter-ef').value;
+  const typeFilter = document.getElementById('market-filter-type').value;
+
+  let listings = Object.entries(data)
+    .filter(([k, v]) => v.status === 'active')
+    .filter(([k, v]) => {
+      if (efFilter !== 'all' && v.card.ef !== efFilter) return false;
+      if (typeFilter !== 'all' && v.type !== typeFilter) return false;
+      if (search && !v.card.name.toLowerCase().includes(search) && !v.card.location.toLowerCase().includes(search)) return false;
+      return true;
+    })
+    .sort((a, b) => b[1].listedAt - a[1].listedAt);
+
+  if (listings.length === 0) {
+    grid.innerHTML = `<div class="market-empty">No listings match your filters.</div>`;
+    return;
+  }
+
+  const now = Date.now();
+  grid.innerHTML = listings.map(([key, listing]) => {
+    const cfg = RARITY_CONFIG[listing.card.ef];
+    const isOwn = listing.sellerUid === myUid;
+    const isAuction = listing.type === 'auction';
+    const expired = isAuction && listing.expiresAt && now > listing.expiresAt;
+    const timeLeft = isAuction && listing.expiresAt ? formatTimeLeft(listing.expiresAt - now) : null;
+    const specialClass = listing.card.vintage ? ' vintage' : listing.card.middleeast ? ' middleeast' : listing.card.overseas ? ' overseas' : '';
+
+    const actionHTML = isOwn
+      ? `<button class="market-remove-btn" data-remove-key="${key}">Remove</button>`
+      : isAuction && !expired
+        ? `<div style="display:flex;gap:6px;align-items:center;flex-direction:column">
+             <input class="market-bid-input" type="number" id="bid-input-${key}" placeholder="🪙 ${listing.price + 1}" min="${listing.price + 1}" />
+             <button class="market-buy-btn" data-bid-key="${key}" data-current="${listing.price}">Place Bid</button>
+           </div>`
+        : !isAuction
+          ? `<button class="market-buy-btn" data-buy-key="${key}" data-price="${listing.price}">Buy 🪙 ${listing.price.toLocaleString()}</button>`
+          : `<span style="font-family:'Share Tech Mono',monospace;font-size:8px;color:#ef5350">EXPIRED</span>`;
+
+    return `
+      <div class="market-listing">
+        <div class="market-listing-thumb">
+          <div class="card card-front ${listing.card.ef}${specialClass}" style="position:absolute;inset:0;transform:scale(0.17);transform-origin:top left;width:588%;height:588%;pointer-events:none">
+            ${buildCardHTMLFromPlain(listing.card)}
+          </div>
+        </div>
+        <div class="market-listing-info">
+          <div>
+            <span class="market-listing-badge ${isAuction ? 'badge-auction' : 'badge-fixed'}">${isAuction ? '⏱ AUCTION' : '🏷 FIXED'}</span>
+          </div>
+          <div class="market-listing-name" style="color:${cfg.color}">${escapeHtml(listing.card.name)}</div>
+          <div class="market-listing-sub">${cfg.label} · Copy ${listing.card.copyNum}/${cfg.copies} · by ${escapeHtml(listing.sellerId)}</div>
+          ${isAuction ? `<div style="font-family:'Share Tech Mono',monospace;font-size:8px;color:${expired?'#ef5350':'#ce93d8'};margin-top:3px">${expired ? 'Ended' : `⏳ ${timeLeft} left`}${listing.topBidder ? ` · Top bid: 🪙 ${listing.price.toLocaleString()} by ${escapeHtml(listing.topBidder)}` : ''}</div>` : ''}
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0">
+          <div class="market-listing-price">${isAuction ? `🪙 ${listing.price.toLocaleString()}` : `🪙 ${listing.price.toLocaleString()}`}</div>
+          ${actionHTML}
+        </div>
+      </div>`;
+  }).join('');
+
+  // Wire up buy/bid/remove buttons
+  grid.onclick = async e => {
+    const buyBtn = e.target.closest('[data-buy-key]');
+    const bidBtn = e.target.closest('[data-bid-key]');
+    const removeBtn = e.target.closest('[data-remove-key]');
+    if (buyBtn) await buyListing(buyBtn.dataset.buyKey, parseInt(buyBtn.dataset.price));
+    if (bidBtn) await placeBid(bidBtn.dataset.bidKey, parseInt(bidBtn.dataset.current));
+    if (removeBtn) await removeListing(removeBtn.dataset.removeKey);
+  };
+}
+
+function formatTimeLeft(ms) {
+  if (ms <= 0) return '0s';
+  const h = Math.floor(ms / 3600000);
+  const m = Math.floor((ms % 3600000) / 60000);
+  const s = Math.floor((ms % 60000) / 1000);
+  if (h > 0) return `${h}h ${m}m`;
+  if (m > 0) return `${m}m ${s}s`;
+  return `${s}s`;
+}
+
+async function buyListing(key, price) {
+  if (getCoins() < price) return showToast(`Not enough coins! Need 🪙 ${price.toLocaleString()}`, '#ef5350');
+  const listing = await marketFbGet(`marketplace/${key}`);
+  if (!listing || listing.status !== 'active') return showToast('Listing no longer available', '#ef5350');
+  if (listing.sellerUid === getInternalUid()) return showToast("Can't buy your own listing", '#ef5350');
+
+  if (!spendCoins(price)) return showToast('Not enough coins', '#ef5350');
+
+  // Add card to collection
+  const c = listing.card;
+  const tornado = { name:c.name, location:c.location, date:c.date, wind:c.wind, path:c.path, deaths:c.deaths, vintage:c.vintage, overseas:c.overseas, fscale:c.fscale, flags:c.flags, icon:c.icon };
+  const serial = alreadyOwns(c.serial) ? c.serial + '-m' + Date.now() : c.serial;
+  collection.unshift({ ef:c.ef, serial, copyNum:c.copyNum, tornado });
+  saveState();
+  renderCollection();
+
+  // Mark listing sold
+  await marketFbPatch(`marketplace/${key}`, { status: 'sold', buyerId: getTraderId() });
+
+  // Pay seller via notification (coins + card removal instruction)
+  await marketFbPush(`inboxes/${listing.sellerId}`, {
+    type: 'sale', fromId: getTraderId(), cardName: c.name,
+    cardSerial: c.serial, listedKey: key,
+    amount: price, ts: Date.now(), status: 'notification'
+  });
+
+  await renderMarketBrowse();
+  showToast(`✅ Purchased ${c.name} for 🪙 ${price.toLocaleString()}!`, '#ffb74d');
+}
+
+async function placeBid(key, currentPrice) {
+  const input = document.getElementById(`bid-input-${key}`);
+  const bidAmt = input ? parseInt(input.value, 10) : 0;
+  if (!bidAmt || bidAmt <= currentPrice) return showToast(`Bid must be higher than 🪙 ${currentPrice}`, '#ef5350');
+  if (getCoins() < bidAmt) return showToast(`Not enough coins! You have 🪙 ${getCoins().toLocaleString()}`, '#ef5350');
+
+  const listing = await marketFbGet(`marketplace/${key}`);
+  if (!listing || listing.status !== 'active') return showToast('Listing no longer available', '#ef5350');
+  if (listing.sellerUid === getInternalUid()) return showToast("Can't bid on your own listing", '#ef5350');
+  if (bidAmt <= listing.price) return showToast(`Someone already bid 🪙 ${listing.price}. Bid higher!`, '#ef5350');
+  if (Date.now() > listing.expiresAt) return showToast('Auction has ended', '#ef5350');
+
+  const myId = getTraderId();
+  // Refund previous top bidder
+  if (listing.topBidderId && listing.topBidderId !== getInternalUid()) {
+    await marketFbPush(`inboxes/${listing.topBidder}`, {
+      type: 'outbid', fromId: myId, cardName: listing.card.name,
+      amount: listing.price, ts: Date.now(), status: 'notification'
+    });
+  }
+
+  await marketFbPatch(`marketplace/${key}`, { price: bidAmt, topBidder: myId, topBidderId: getInternalUid() });
+
+  await renderMarketBrowse();
+  showToast(`✅ Bid placed: 🪙 ${bidAmt.toLocaleString()}!`, '#ce93d8');
+}
+
+async function removeListing(key) {
+  const listing = await marketFbGet(`marketplace/${key}`);
+  if (!listing) return;
+  if (listing.sellerUid !== getInternalUid()) return showToast('Not your listing', '#ef5350');
+
+  await marketFbPatch(`marketplace/${key}`, { status: 'removed' });
+
+  // Remove listedKey from collection card
+  const idx = collection.findIndex(c => c.listedKey === key);
+  if (idx >= 0) { delete collection[idx].listedKey; saveState(); renderCollection(); }
+
+  showToast('Listing removed', '#ffb74d');
+  renderMarketBrowse();
+}
+
+// ---- My Listings ----
+async function renderMyListings() {
+  const myUid = getInternalUid();
+  const myId = getTraderId();
+  const list = document.getElementById('market-my-listings-list');
+  if (!myId) {
+    list.innerHTML = `<div class="market-empty">Set your Trader ID in the Trade menu to list cards.</div>`;
+    return;
+  }
+  list.innerHTML = `<div class="market-empty">Loading…</div>`;
+  const data = await marketFbGet('marketplace');
+  if (!data) { list.innerHTML = `<div class="market-empty">No listings yet.</div>`; return; }
+
+  const mine = Object.entries(data).filter(([k,v]) => v.sellerUid === myUid && v.status === 'active');
+  if (mine.length === 0) {
+    list.innerHTML = `<div class="market-empty">You have no active listings. Go to Sell a Card to list one!</div>`;
+    return;
+  }
+
+  const now = Date.now();
+  list.innerHTML = mine.map(([key, listing]) => {
+    const cfg = RARITY_CONFIG[listing.card.ef];
+    const isAuction = listing.type === 'auction';
+    const timeLeft = isAuction && listing.expiresAt ? formatTimeLeft(listing.expiresAt - now) : null;
+    return `
+      <div class="market-listing">
+        <div class="market-listing-info">
+          <div>
+            <span class="market-listing-badge ${isAuction ? 'badge-auction' : 'badge-fixed'}">${isAuction ? '⏱ AUCTION' : '🏷 FIXED'}</span>
+          </div>
+          <div class="market-listing-name" style="color:${cfg.color}">${escapeHtml(listing.card.name)}</div>
+          <div class="market-listing-sub">${cfg.label} · Copy ${listing.card.copyNum}/${cfg.copies}</div>
+          ${isAuction ? `<div style="font-family:'Share Tech Mono',monospace;font-size:8px;color:#ce93d8;margin-top:3px">⏳ ${timeLeft} left${listing.topBidder ? ` · Top bid: 🪙 ${listing.price.toLocaleString()} by ${escapeHtml(listing.topBidder)}` : ' · No bids yet'}</div>` : ''}
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px">
+          <div class="market-listing-price">🪙 ${listing.price.toLocaleString()}</div>
+          <button class="market-remove-btn" data-remove-key="${key}">Remove</button>
+        </div>
+      </div>`;
+  }).join('');
+
+  list.onclick = async e => {
+    const removeBtn = e.target.closest('[data-remove-key]');
+    if (removeBtn) { await removeListing(removeBtn.dataset.removeKey); renderMyListings(); }
+  };
+}
+
+// ---- Tab switching ----
+function switchMarketTab(tab) {
+  document.querySelectorAll('#market-tabs .trade-tab').forEach(b => b.classList.remove('active'));
+  const activeBtn = document.querySelector(`#market-tabs [data-mtab="${tab}"]`);
+  if (activeBtn) activeBtn.classList.add('active');
+  document.querySelectorAll('.market-panel').forEach(p => p.classList.add('hidden'));
+  const panel = document.getElementById(`market-${tab}-panel`);
+  if (panel) panel.classList.remove('hidden');
+
+  // Always reset sell state when switching away
+  if (tab !== 'sell') {
+    marketSellSerial = null;
+  }
+
+  if (tab === 'browse') renderMarketBrowse();
+  if (tab === 'sell') { marketSellSerial = null; renderMarketSellGrid(); document.getElementById('market-sell-form').style.display = 'none'; }
+  if (tab === 'mylistings') renderMyListings();
+  if (tab === 'daily') renderDailyTab();
+  if (tab === 'jackpot') renderJackpotTab();
+
+  // Stop jackpot countdown when leaving
+  if (tab !== 'jackpot' && jackpotCountdownTimer) {
+    clearInterval(jackpotCountdownTimer);
+    jackpotCountdownTimer = null;
+  }
+}
+
+function renderDailyTab() {
+  updateCoinDisplay();
+  const claimed = hasClaimedDaily();
+  const btn = document.getElementById('daily-claim-btn');
+  const status = document.getElementById('daily-claim-status');
+  if (claimed) {
+    btn.disabled = true;
+    btn.textContent = '✅ Already claimed today';
+    btn.style.opacity = '0.5';
+    status.textContent = 'Come back tomorrow for another 50 coins!';
+    status.style.color = '#81c784';
+  } else {
+    btn.disabled = false;
+    btn.textContent = 'Claim Daily Bonus';
+    btn.style.opacity = '1';
+    status.textContent = '';
+  }
+}
+
+function openMarket() {
+  document.getElementById('market-overlay').classList.add('open');
+  updateCoinDisplay();
+  switchMarketTab('browse');
+}
+function closeMarket() {
+  document.getElementById('market-overlay').classList.remove('open');
+}
+
+function initMarketplace() {
+  document.getElementById('market-btn').addEventListener('click', openMarket);
+  document.getElementById('market-close').addEventListener('click', closeMarket);
+  document.getElementById('market-overlay').addEventListener('click', e => {
+    if (e.target === document.getElementById('market-overlay')) closeMarket();
+  });
+
+  document.querySelectorAll('#market-tabs .trade-tab').forEach(btn => {
+    btn.addEventListener('click', () => switchMarketTab(btn.dataset.mtab));
+  });
+
+  document.getElementById('market-search').addEventListener('input', renderMarketBrowse);
+  document.getElementById('market-filter-ef').addEventListener('change', renderMarketBrowse);
+  document.getElementById('market-filter-type').addEventListener('change', renderMarketBrowse);
+
+  // Sell type toggle
+  document.getElementById('sell-type-fixed').addEventListener('click', () => {
+    marketSellType = 'fixed';
+    document.getElementById('sell-type-fixed').classList.add('active');
+    document.getElementById('sell-type-auction').classList.remove('active');
+    document.getElementById('sell-type-label').textContent = 'fixed price';
+    document.getElementById('sell-price-hint').textContent = "Card stays in your collection until sold. You can remove the listing anytime.";
+  });
+  document.getElementById('sell-type-auction').addEventListener('click', () => {
+    marketSellType = 'auction';
+    document.getElementById('sell-type-auction').classList.add('active');
+    document.getElementById('sell-type-fixed').classList.remove('active');
+    document.getElementById('sell-type-label').textContent = 'starting bid';
+    document.getElementById('sell-price-hint').textContent = "Auction runs for 24 hours. Highest bidder wins. Card stays in your collection until the auction ends.";
+  });
+
+  document.getElementById('market-list-btn').addEventListener('click', listCard);
+
+  document.getElementById('daily-claim-btn').addEventListener('click', () => {
+    const ok = claimDaily();
+    if (ok) {
+      showToast(`+${DAILY_AMOUNT} coins claimed! 🪙`, '#ffb74d');
+      renderDailyTab();
+    } else {
+      showToast('Already claimed today — come back tomorrow!', '#ffb74d');
+    }
+  });
+
+  // Check for sale/outbid notifications on load
+  checkMarketNotifications();
+}
+
+async function checkMarketNotifications() {
+  const myId = getTraderId();
+  if (!myId) return;
+  const data = await fbGet(`inboxes/${myId}`);
+  if (!data) return;
+  for (const [key, notif] of Object.entries(data)) {
+    if (notif.status !== 'notification') continue;
+    if (notif.type === 'sale') {
+      addCoins(notif.amount);
+      showToast(`💰 Your ${notif.cardName} sold for 🪙 ${notif.amount.toLocaleString()}!`, '#ffb74d');
+      // Remove the sold card from seller's local collection
+      if (notif.cardSerial) {
+        const before = collection.length;
+        collection = collection.filter(c => c.serial !== notif.cardSerial);
+        // Also clear by listedKey in case serial check missed it
+        if (notif.listedKey) {
+          collection = collection.filter(c => c.listedKey !== notif.listedKey);
+        }
+        if (collection.length < before) {
+          saveState();
+          renderCollection();
+        }
+      }
+      await fbDelete(`inboxes/${myId}/${key}`);
+    } else if (notif.type === 'outbid') {
+      showToast(`You were outbid on ${notif.cardName}`, '#ce93d8');
+      await fbDelete(`inboxes/${myId}/${key}`);
+    }
+  }
+  updateCoinDisplay();
+}
+
+
+// =====================
 // JACKPOT SYSTEM
 // =====================
 // DESIGN: Coins are NOT deducted when pledging. They stay in localStorage.
@@ -6168,6 +7158,7 @@ async function initAuth() {
   init();
   initChat();
   initTradeSettings();
+  initMarketplace();
   initJackpotModal();
   initJackpot();
   updateCoinDisplay();
